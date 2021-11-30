@@ -79,7 +79,7 @@ public class Biglietto {
 		 return costo.subtract(sconto,context);
 		 } else {
 			 BigDecimal prezzoPerFlessibile = new BigDecimal(1.1);
-			 return (costo.subtract(sconto,context)).multiply(prezzoPerFlessibile);
+			 return (costo.subtract(sconto,context)).multiply(prezzoPerFlessibile,context);
 		 }
 	 }
 	 
