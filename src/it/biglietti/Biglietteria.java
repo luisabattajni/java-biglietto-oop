@@ -1,3 +1,5 @@
+// Lavoro svolto nella room 2
+// Fino a Milestone 2 compreso
 package it.biglietti;
 
 import java.time.LocalDate;
@@ -17,6 +19,7 @@ public class Biglietteria {
 		//to fix: boolean works but rn needs true/false input. find better solution?
 		System.out.print("Si desidera un biglietto flessibile? (Utilizzare true / false): ");
 		flessibile = input.nextBoolean();
+		
 		Biglietto biglietto = new Biglietto(km, eta, data, flessibile);
 		try {
 			biglietto.isValidKm();
@@ -28,11 +31,12 @@ public class Biglietteria {
 		}catch (Exception eD) {
 			System.out.println("Si e' verificato un errore: " + eD.getMessage());
 		}
+
 		
 		input.close();
 		
 		System.out.println("$" + biglietto.calcolaPrezzo());
-		System.out.println("data" + biglietto.calcolaDataScadenza());
+		System.out.println("Data di scadenza: " + biglietto.calcolaDataScadenza());
 	}
 
 }

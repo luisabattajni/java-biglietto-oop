@@ -1,5 +1,5 @@
 // Lavoro svolto nella room 2
-// Milestone 2
+// Fino a Milestone 2 compreso
 package it.biglietti;
 
 import java.math.BigDecimal;
@@ -7,25 +7,6 @@ import java.math.MathContext;
 import java.time.LocalDate;
 
 public class Biglietto {
-
-	
-//		Alla classe Biglietto aggiungere i seguenti attributi:
-//		data: LocalDate
-//		flessibile: boolean
-//		Entrambi gli attributi vanno valorizzati nel costruttore.
-//		
-//		Aggiungere due costanti:
-//		durata normale: 30 giorni (int)
-//		durata flessibile: 90 giorni (int)
-//		
-//		Aggiungere un metodo (calcolaDataScadenza: LocalDate) che calcola la data di scadenza del biglietto, applicando la durata normale o flessibile in base al parametro flessibile(boolean).
-//		
-//		Nel metodo che calcola il prezzo, se il biglietto è flessibile, maggiorare il prezzo del 10%.
-//		
-//		Modificare la classe Biglietteria in modo che, alla creazione del Biglietto, valorizzi la data con la data odierna e il parametro flessibile in base alla scelta dell’utente.
-//		Dopo aver stampato il prezzo del biglietto, stampare a video anche la data di scadenza.
-
-
 
 //	costanti
 	private final static BigDecimal COSTO_PER_KM = new BigDecimal(0.21);
@@ -51,14 +32,15 @@ public class Biglietto {
 //	metodi
 	 public boolean isValidKm() throws Exception {
 		 if(km <= 0) {
-			 throw new Exception("Km not valid");
+			 throw new Exception("Numero km non valido");
 		 } return true;
 	 }
 	 public boolean isValidEta() throws Exception {
 		 if(eta <= 0) {
-			 throw new Exception("Eta not valid");
+			 throw new Exception("Età non valida");
 		 } return true;
 	 }
+	 
 	 
 	 private BigDecimal calcolaSconto() {
 		 if (eta < 18) {
@@ -82,14 +64,7 @@ public class Biglietto {
 			 return (costo.subtract(sconto,context)).multiply(prezzoPerFlessibile,context);
 		 }
 	 }
-	 
-	/*
-	 * Aggiungere un metodo (calcolaDataScadenza: LocalDate) 
-	 * che calcola la data di scadenza del biglietto, 
-	 * applicando la durata normale o flessibile in base 
-	 * al parametro flessibile(boolean).
-	 */
-	 
+
 	 // metodo per calcolare la scadenza del biglietto
 	 public LocalDate calcolaDataScadenza() {
 		 if (flessibile == false) {
@@ -100,10 +75,6 @@ public class Biglietto {
 		 return data;
 		 
 	 }
-	 
-
-	 
-	 
 	 
 
 }
