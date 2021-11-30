@@ -1,17 +1,23 @@
 package it.biglietti;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Biglietteria {
 
 	public static void main(String[] args) {
 		int km, eta;
+		LocalDate data = null;
+		boolean flessibile;
 		Scanner input = new Scanner(System.in);
 		System.out.print("Inserire km:");
 		km = input.nextInt();
 		System.out.print("Inserire eta: ");
 		eta = input.nextInt();
-		Biglietto biglietto = new Biglietto(km, eta);
+		//to fix: boolean works but rn needs true/false input. find better solution?
+		System.out.print("Si desidera un biglietto flessibile? (Utilizzare true / false): ");
+		flessibile = input.nextBoolean();
+		Biglietto biglietto = new Biglietto(km, eta, data, flessibile);
 		try {
 			biglietto.isValidKm();
 		}catch (Exception e) {
@@ -26,6 +32,7 @@ public class Biglietteria {
 		input.close();
 		
 		System.out.println("$" + biglietto.calcolaPrezzo());
+		System.out.println("data" + biglietto.calcolaDataScadenza());
 	}
 
 }
